@@ -1,21 +1,22 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
-//create node
 class Node{
     public:
     int data;
     Node* next;
+    Node(){
+        this->data=0;
+        this->next=NULL;
+    }
     Node(int data){
         this->data=data;
         this->next=NULL;
-
     }
 };
-void insertathead(Node* &head,int data){
+void insertattail(Node* &tail,int data){
     Node* temp=new Node(data);
-    temp->next=head;
-    head=temp;
-
+    tail->next=temp;
+    tail=temp;
 }
 void display(Node* &head){
         Node* temp=head;
@@ -25,13 +26,19 @@ void display(Node* &head){
         }
         cout<<endl;
     }
-int main(){
-    Node* head=new Node(10);
-    display(head);
-    cout<<"head "<<head->data<<endl;
-    insertathead(head,23);
-    display(head);
-    cout<<"head "<<head->data<<endl;
 
-  return 0;
+int main(){
+    Node * tail=new Node(10);
+    Node* head=tail;
+
+    display(head);
+    insertattail(tail,12);
+    cout<<tail->data<<endl;
+    display(head);
+     insertattail(tail,3);
+    display(head);
+
+
+
+    return 0;
 }
